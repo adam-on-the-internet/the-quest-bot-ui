@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {LogService} from "./services/log.service";
-import {HeroService} from "./services/hero.service";
+import {HeroLoaderService} from "./services/hero-loader.service";
 
 @Component({
     selector: "app-root",
@@ -12,13 +12,13 @@ export class AppComponent implements OnInit {
 
     constructor(
         private logService: LogService,
-        private heroService: HeroService,
+        private heroLoaderService: HeroLoaderService,
     ) {
     }
 
     public ngOnInit() {
         this.logStart();
-        this.heroService.load();
+        this.heroLoaderService.load();
     }
 
     private logStart() {
