@@ -1,12 +1,14 @@
 import {Injectable} from "@angular/core";
+import {HeroStats} from "../models/HeroStats.model";
+import {Hero} from "../models/Hero.model";
 
 @Injectable({
     providedIn: "root"
 })
 export class HeroService {
-    public fallenHeroes: any = null;
-    public currentHero: any = null;
-    public heroStats: any = null;
+    public currentHero: Hero = null;
+    public fallenHeroes: Hero[] = null;
+    public heroStats: HeroStats = null;
 
     public get ready(): boolean {
         return this.fallenHeroes !== null &&

@@ -24,6 +24,10 @@ export class NavHelperService {
         this.goToRoute(ROUTES_ENUM.FallenHeroes);
     }
 
+    public goToHeroDisplay(id: string): void {
+        this.goToRoutes([ROUTES_ENUM.HeroDisplay, id]);
+    }
+
     public goToHeroStats(): void {
         this.goToRoute(ROUTES_ENUM.HeroStats);
     }

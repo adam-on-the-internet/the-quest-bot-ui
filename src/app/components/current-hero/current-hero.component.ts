@@ -1,15 +1,24 @@
-import { Component, OnInit } from "@angular/core";
+import {Component} from "@angular/core";
+import {HeroService} from "../../services/hero.service";
+import {Hero} from "../../models/Hero.model";
 
 @Component({
-  selector: "app-current-hero",
-  templateUrl: "./current-hero.component.html",
-  styleUrls: ["./current-hero.component.scss"]
+    selector: "app-current-hero",
+    templateUrl: "./current-hero.component.html",
+    styleUrls: ["./current-hero.component.scss"]
 })
-export class CurrentHeroComponent implements OnInit {
+export class CurrentHeroComponent {
+    public get ready(): boolean {
+        return this.heroService.ready;
+    }
 
-  constructor() { }
+    public get currentHero(): Hero {
+        return this.heroService.currentHero;
+    }
 
-  ngOnInit() {
-  }
+    constructor(
+        private heroService: HeroService,
+    ) {
+    }
 
 }

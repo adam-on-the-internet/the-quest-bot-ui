@@ -17,9 +17,11 @@ import {BodyComponent} from "./components/body/body.component";
 import {LoadingComponent} from "./components/loading/loading.component";
 import {CardComponent} from "./components/card/card.component";
 import {BodyAltComponent} from "./components/body-alt/body-alt.component";
-import { CurrentHeroComponent } from "./components/current-hero/current-hero.component";
-import { FallenHeroesComponent } from "./components/fallen-heroes/fallen-heroes.component";
-import { HeroStatsComponent } from "./components/hero-stats/hero-stats.component";
+import {CurrentHeroComponent} from "./components/current-hero/current-hero.component";
+import {FallenHeroesComponent} from "./components/fallen-heroes/fallen-heroes.component";
+import {HeroStatsComponent} from "./components/hero-stats/hero-stats.component";
+import {HeroDisplayComponent} from "./components/hero-display/hero-display.component";
+import {HeroCardComponent} from "./components/hero-card/hero-card.component";
 
 @NgModule({
     declarations: [
@@ -39,6 +41,8 @@ import { HeroStatsComponent } from "./components/hero-stats/hero-stats.component
         CurrentHeroComponent,
         FallenHeroesComponent,
         HeroStatsComponent,
+        HeroDisplayComponent,
+        HeroCardComponent,
     ],
     imports: [
         BrowserModule,

@@ -5,6 +5,8 @@ import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
 import {ServiceUrl} from "../constants/rest.constants";
 import {CookieHelper} from "../utilities/cookie.util";
 import {HeroService} from "./hero.service";
+import {Hero} from "../models/Hero.model";
+import {HeroStats} from "../models/HeroStats.model";
 
 const controller = "quest";
 
@@ -50,30 +52,30 @@ export class HeroLoaderService {
                 });
     }
 
-    private getCurrentHero(): Observable<any> {
+    private getCurrentHero(): Observable<Hero> {
         const url = RestUrlBuilder.buildRestUrl({
             service: ServiceUrl.NonProdExpress,
             controller,
             collection: "currentHero",
         });
-        return this.http.get(url, CookieHelper.authHeaders) as Observable<any>;
+        return this.http.get(url, CookieHelper.authHeaders) as Observable<Hero>;
     }
 
-    private getFallenHeroes(): Observable<any> {
+    private getFallenHeroes(): Observable<Hero[]> {
         const url = RestUrlBuilder.buildRestUrl({
             service: ServiceUrl.NonProdExpress,
             controller,
             collection: "fallenHeroes",
         });
-        return this.http.get(url, CookieHelper.authHeaders) as Observable<any>;
+        return this.http.get(url, CookieHelper.authHeaders) as Observable<Hero[]>;
     }
 
-    private getHeroStats(): Observable<any> {
+    private getHeroStats(): Observable<HeroStats> {
         const url = RestUrlBuilder.buildRestUrl({
             service: ServiceUrl.NonProdExpress,
             controller,
             collection: "heroStats",
         });
-        return this.http.get(url, CookieHelper.authHeaders) as Observable<any>;
+        return this.http.get(url, CookieHelper.authHeaders) as Observable<HeroStats>;
     }
 }

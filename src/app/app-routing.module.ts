@@ -9,6 +9,7 @@ import {AdminComponent} from "./components/admin/admin.component";
 import {HeroStatsComponent} from "./components/hero-stats/hero-stats.component";
 import {FallenHeroesComponent} from "./components/fallen-heroes/fallen-heroes.component";
 import {CurrentHeroComponent} from "./components/current-hero/current-hero.component";
+import {HeroDisplayComponent} from "./components/hero-display/hero-display.component";
 
 const routes: Routes = [
     // main
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path: ROUTES_ENUM.CurrentHero, component: CurrentHeroComponent},
     {path: ROUTES_ENUM.FallenHeroes, component: FallenHeroesComponent},
     {path: ROUTES_ENUM.HeroStats, component: HeroStatsComponent},
+    {path: ROUTES_ENUM.HeroDisplay + "/:id", component: HeroDisplayComponent},
     // default
     {path: "**", redirectTo: "dashboard"},
 ];

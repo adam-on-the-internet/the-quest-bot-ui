@@ -1,10 +1,10 @@
 <app-header
-        [title]="'Current Hero'"
+        [title]="'Hero Display'"
 ></app-header>
 <app-body>
     <div class="row">
         <div class="col-md-12 my-3">
-            <app-hero-card [hero]="currentHero" *ngIf="ready; else loading"></app-hero-card>
+            <app-hero-card [hero]="selectedHero" *ngIf="ready; else loading"></app-hero-card>
         </div>
     </div>
 </app-body>

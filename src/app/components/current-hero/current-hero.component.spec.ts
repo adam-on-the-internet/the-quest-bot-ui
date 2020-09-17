@@ -4,6 +4,8 @@ import {CurrentHeroComponent} from "./current-hero.component";
 import {BodyComponent} from "../body/body.component";
 import {HeaderComponent} from "../header/header.component";
 import {CardComponent} from "../card/card.component";
+import {HeroCardComponent} from "../hero-card/hero-card.component";
+import {LoadingComponent} from "../loading/loading.component";
 
 describe("CurrentHeroComponent", () => {
     let component: CurrentHeroComponent;
@@ -12,7 +14,8 @@ describe("CurrentHeroComponent", () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                CurrentHeroComponent, BodyComponent, HeaderComponent, CardComponent
+                CurrentHeroComponent, BodyComponent, HeaderComponent, CardComponent,
+                HeroCardComponent, LoadingComponent,
             ]
         })
             .compileComponents();

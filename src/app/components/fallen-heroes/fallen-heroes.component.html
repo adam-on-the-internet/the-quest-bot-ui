@@ -4,7 +4,19 @@
 <app-body>
     <div class="row">
         <div class="col-md-12 my-3">
-            <app-card [title]="'Coming soon...'"></app-card>
+            <app-card>
+                <ul class="list-group" *ngIf="ready; else loading">
+                    <li class="list-group-item" *ngFor="let hero of fallenHeroes">
+                        <!--                        TODO better rows -->
+                        {{hero.name}}
+                        <a (click)="goToHeroDisplay(hero)">DETAILS</a>
+                    </li>
+                </ul>
+            </app-card>
         </div>
     </div>
 </app-body>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

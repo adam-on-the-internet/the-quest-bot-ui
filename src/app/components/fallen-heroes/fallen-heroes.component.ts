@@ -1,15 +1,30 @@
-import { Component, OnInit } from "@angular/core";
+import {Component} from "@angular/core";
+import {HeroService} from "../../services/hero.service";
+import {Hero} from "../../models/Hero.model";
+import {NavHelperService} from "../../services/nav-helper.service";
 
 @Component({
-  selector: "app-fallen-heroes",
-  templateUrl: "./fallen-heroes.component.html",
-  styleUrls: ["./fallen-heroes.component.scss"]
+    selector: "app-fallen-heroes",
+    templateUrl: "./fallen-heroes.component.html",
+    styleUrls: ["./fallen-heroes.component.scss"]
 })
-export class FallenHeroesComponent implements OnInit {
+export class FallenHeroesComponent {
+    public get ready(): boolean {
+        return this.heroService.ready;
+    }
 
-  constructor() { }
+    public get fallenHeroes(): Hero[] {
+        return this.heroService.fallenHeroes;
+    }
 
-  ngOnInit() {
-  }
+    constructor(
+        private heroService: HeroService,
+        private navHelperService: NavHelperService,
+    ) {
+    }
+
+    public goToHeroDisplay(hero: Hero) {
+        this.navHelperService.goToHeroDisplay(hero._id);
+    }
 
 }
