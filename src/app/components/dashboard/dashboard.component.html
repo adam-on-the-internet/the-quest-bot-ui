@@ -1,0 +1,49 @@
+<app-header
+  [title]="'The Quest Bot'"
+  [subtitle]="'A bot that sends heroes on quests.'"
+></app-header>
+<app-body>
+  <div class="row">
+    <div class="col-md-12 my-3">
+      <h2 class="text-center">
+        My Stuff
+      </h2>
+    </div>
+    <div class="col-md-6 my-3">
+      <app-card [title]="'My Bookmarks'" [icon]="'fa-bookmark'">
+        <p>
+          My personal bookmarks.
+        </p>
+        <button class="btn btn-secondary" (click)="goBookmarks()">
+          Go
+        </button>
+      </app-card>
+    </div>
+  </div>
+</app-body>
+<app-body-alt>
+  <div class="row">
+    <div class="col-md-6 my-3">
+      <app-card [title]="'Donate to Charity'" [icon]="'fa-money'">
+        <p>
+          Like this free website? Pay it forward to a charity I support.
+        </p>
+        <a
+          class="btn btn-secondary"
+          href="https://aoti-app-hub.herokuapp.com/donate"
+          target="_blank"
+        >
+          Donate
+        </a>
+      </app-card>
+    </div>
+    <div class="col-md-6 my-3">
+      <app-card [title]="'More Information'" [icon]="'fa-info-circle'">
+        <p>
+          Just curious about this site? Get more information about this website.
+        </p>
+        <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
+      </app-card>
+    </div>
+  </div>
+</app-body-alt>

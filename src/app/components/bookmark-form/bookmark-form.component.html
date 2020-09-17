@@ -1,0 +1,71 @@
+<ng-container *ngIf="ready; else notReady">
+  <app-header [title]="title"></app-header>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <app-card>
+          <form>
+            <section id="bookmark-name">
+              1. Bookmark name:
+              <br />
+              <input
+                type="text"
+                name="bookmarkName"
+                [(ngModel)]="bookmark.name"
+              /><br /><br />
+              <hr />
+            </section>
+            <section id="bookmark-link">
+              2. Bookmark link:
+              <br />
+              <input
+                type="text"
+                name="bookmarkLink"
+                [(ngModel)]="bookmark.url"
+              /><br /><br />
+              <hr />
+            </section>
+            <section id="bookmark-type">
+              3. Bookmark type:
+              <br />
+              <input
+                type="text"
+                name="bookmarkType"
+                [(ngModel)]="bookmark.type"
+              /><br /><br />
+              <hr />
+            </section>
+            <section id="bookmark-order">
+              4. Bookmark order:
+              <br />
+              <input
+                type="text"
+                name="bookmarkOrder"
+                [(ngModel)]="bookmark.order"
+              /><br /><br />
+              <hr />
+            </section>
+            <div
+              class="error-report alert alert-danger"
+              *ngIf="showErrors && !valid"
+            >
+              <p>Please correct the following errors:</p>
+              <ul>
+                <li *ngFor="let error of errors">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+            <button class="btn btn-primary" (click)="submit()">
+              Save Bookmark
+            </button>
+          </form>
+        </app-card>
+      </div>
+    </div>
+  </app-body>
+</ng-container>
+
+<ng-template #notReady>
+  <app-loading></app-loading>
+</ng-template>

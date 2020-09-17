@@ -1,0 +1,51 @@
+<div class="bg-brown">
+  <div class="row">
+    <div class="col-md-12 my-3 text-center">
+      <p class="my-0">
+        <a
+          class="btn btn-link text-white"
+          href="https://github.com/adam-on-the-internet"
+          target="_blank"
+        >
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+        <a
+          class="btn btn-link text-white"
+          href="https://www.linkedin.com/in/adam-callanan-49114b119"
+          target="_blank"
+        >
+          <i class="fa fa-linkedin-square fa-2x"></i>
+        </a>
+        <a
+          class="btn btn-link text-white"
+          href="https://twitter.com/adam_on_the_net"
+          target="_blank"
+        >
+          <i class="fa fa-twitter fa-2x"></i>
+        </a>
+        <a
+          class="btn btn-link text-white"
+          href="http://www.adamontheinternet.com/contact"
+          target="_blank"
+        >
+          <i class="fa fa-envelope fa-2x"></i>
+        </a>
+      </p>
+      <p class="my-0 text-white">
+        <a
+          class="text-white"
+          href="http://www.adamontheinternet.com"
+          target="_blank"
+        >
+          © Adam on the Internet {{ year }}
+        </a>
+      </p>
+      <p class="my-0" *ngIf="!isLoggedIn">
+        <button class="btn btn-link text-white" (click)="goToLogin()">
+          <i class="fa fa-lock"></i>
+          Login
+        </button>
+      </p>
+    </div>
+  </div>
+</div>

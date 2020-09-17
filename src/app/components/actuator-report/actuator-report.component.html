@@ -1,0 +1,19 @@
+<ng-container *ngIf="showReport; else error">
+  <ng-container *ngIf="ready; else loading">
+    <p>
+      <button class="btn btn-primary" (click)="checkActuator()">
+        REFRESH
+      </button>
+      Status of {{ serviceName }}:
+      {{ status.status }}
+    </p>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading [message]="'Checking status...'"></app-loading>
+</ng-template>
+
+<ng-template #error>
+  <p>This actuator report is setup incorrectly!</p>
+</ng-template>
