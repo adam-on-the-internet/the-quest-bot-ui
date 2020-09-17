@@ -7,9 +7,9 @@
             <app-card>
                 <ul class="list-group" *ngIf="ready; else loading">
                     <li class="list-group-item" *ngFor="let hero of fallenHeroes">
-                        <!--                        TODO better rows -->
-                        {{hero.name}}
-                        <a (click)="goToHeroDisplay(hero)">DETAILS</a>
+                        <button class="btn btn-outline-primary btn-block" (click)="goToHeroDisplay(hero)">
+                            {{hero.name}} (Level {{hero.level}})
+                        </button>
                     </li>
                 </ul>
             </app-card>

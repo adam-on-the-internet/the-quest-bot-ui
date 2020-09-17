@@ -9,6 +9,14 @@ import {Hero} from "../../models/Hero.model";
 export class HeroCardComponent {
     @Input() public hero: Hero = null;
 
+    public get heroTitle(): string {
+        return `${this.hero.name} Lvl. ${this.hero.level}`;
+    }
+
+    public get heroSubtitle(): string {
+        return this.hero.hpText;
+    }
+
     public get hasHero(): boolean {
         return this.hero !== null;
     }

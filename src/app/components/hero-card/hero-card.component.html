@@ -1,4 +1,45 @@
-<app-card [title]="hero.name" *ngIf="hasHero">
-<!--    TODO hero details here -->
-    {{hero | json}}
+<app-card [title]="heroTitle" [subtitle]="heroSubtitle" *ngIf="hasHero">
+    <!--    TODO hero details here -->
+    <section id="recent-update">
+        <h4>
+            Recent Update
+        </h4>
+        <p>
+            <em>
+                {{hero.announcement}}
+            </em>
+        </p>
+    </section>
+    <hr>
+    <section id="stats">
+        <h4>
+            Stats
+        </h4>
+        <p>
+            Coming soon...
+<!--            backstory-->
+<!--            stats-->
+<!--            ability-->
+<!--            weakness-->
+<!--            item-->
+<!--            ally-->
+        </p>
+    </section>
+<!--    start date / end date -->
+<!--    quest progress -->
+    <hr>
+    <section id="journal">
+        <h4>
+            Journal
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let message of hero.journal">
+                {{message}}
+            </li>
+        </ul>
+    </section>
+    <hr>
+    <section id="json">
+        {{hero | json}}
+    </section>
 </app-card>
