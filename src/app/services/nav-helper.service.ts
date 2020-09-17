@@ -16,6 +16,18 @@ export class NavHelperService {
         this.goToRoute(ROUTES_ENUM.Dashboard);
     }
 
+    public goToCurrentHero(): void {
+        this.goToRoute(ROUTES_ENUM.CurrentHero);
+    }
+
+    public goToFallenHeroes(): void {
+        this.goToRoute(ROUTES_ENUM.FallenHeroes);
+    }
+
+    public goToHeroStats(): void {
+        this.goToRoute(ROUTES_ENUM.HeroStats);
+    }
+
     public goToInfo(): void {
         this.goToRoute(ROUTES_ENUM.Info);
     }

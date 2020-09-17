@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {NavHelperService} from "src/app/services/nav-helper.service";
-import {HeroService} from "../../services/hero.service";
 
 @Component({
     selector: "app-dashboard",
@@ -9,18 +8,21 @@ import {HeroService} from "../../services/hero.service";
 })
 export class DashboardComponent {
 
-    public get ready(): boolean {
-        return this.heroService.ready;
-    }
-
-    public get heroes(): any[] {
-        return this.heroService.allHeroes;
-    }
-
     constructor(
         private navHelper: NavHelperService,
-        private heroService: HeroService,
     ) {
+    }
+
+    public goToCurrentHero() {
+        this.navHelper.goToCurrentHero();
+    }
+
+    public goToFallenHeroes() {
+        this.navHelper.goToFallenHeroes();
+    }
+
+    public goToHeroStats() {
+        this.navHelper.goToHeroStats();
     }
 
     public goToInfo() {

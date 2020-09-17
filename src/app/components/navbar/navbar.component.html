@@ -1,34 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
-  <a class="navbar-brand" (click)="goToDashboard()" id="app-title">
-    <i class="fa fa-star"></i>
-    <span id="app-title">
+    <a class="navbar-brand" (click)="goToDashboard()" id="app-title">
+        <i class="fa fa-star"></i>
+        <span id="app-title">
       The Quest Bot
     </span>
-  </a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <ng-container *ngIf="isLoggedIn">
-        <li class="nav-item">
-          <a class="nav-link" (click)="goToProfile()">Your profile</a>
-        </li>
-        <li class="nav-item" *ngIf="isAdmin">
-          <a class="nav-link" (click)="goToAdmin()">Admin panel</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="logout()">Logout</a>
-        </li>
-      </ng-container>
-    </ul>
-  </div>
+    </a>
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" (click)="goToCurrentHero()">Current Hero</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="goToFallenHeroes()">Fallen Heroes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="goToHeroStats()">Hero Stats</a>
+            </li>
+            <ng-container *ngIf="isLoggedIn">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="goToProfile()">Your profile</a>
+                </li>
+                <li class="nav-item" *ngIf="isAdmin">
+                    <a class="nav-link" (click)="goToAdmin()">Admin panel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="logout()">Logout</a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
 </nav>

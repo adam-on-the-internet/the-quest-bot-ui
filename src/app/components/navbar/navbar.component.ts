@@ -33,6 +33,18 @@ export class NavbarComponent {
     this.navHelper.goToDashboard();
   }
 
+  public goToCurrentHero() {
+    this.navHelper.goToCurrentHero();
+  }
+
+  public goToFallenHeroes() {
+    this.navHelper.goToFallenHeroes();
+  }
+
+  public goToHeroStats() {
+    this.navHelper.goToHeroStats();
+  }
+
   public goToProfile(): void {
     this.navHelper.goToProfile();
   }

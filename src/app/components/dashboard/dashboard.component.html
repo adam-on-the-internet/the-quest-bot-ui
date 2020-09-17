@@ -4,11 +4,34 @@
 ></app-header>
 <app-body>
     <div class="row">
-        <div class="col-md-8 mx-auto my-3">
-            <app-card [title]="'Heroes'">
-                <p *ngIf="ready; else loading">
-                    {{heroes | json}}
+        <div class="col-md-4 my-3">
+            <app-card [title]="'Current Hero Story'" [icon]="'fa-street-view'">
+                <p>
+                    See how the current hero is doing.
                 </p>
+                <button class="btn btn-primary" (click)="goToCurrentHero()">
+                    Go
+                </button>
+            </app-card>
+        </div>
+        <div class="col-md-4 my-3">
+            <app-card [title]="'Hall of Fallen Heroes'" [icon]="'fa-book'">
+                <p>
+                    See the stories of legendary heroes.
+                </p>
+                <button class="btn btn-secondary" (click)="goToFallenHeroes()">
+                    Go
+                </button>
+            </app-card>
+        </div>
+        <div class="col-md-4 my-3">
+            <app-card [title]="'Hero Statistics'" [icon]="'fa-line-chart'">
+                <p>
+                    See the statistics of all heroes.
+                </p>
+                <button class="btn btn-secondary" (click)="goToHeroStats()">
+                    Go
+                </button>
             </app-card>
         </div>
     </div>
