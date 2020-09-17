@@ -1,30 +1,30 @@
-import { Component } from "@angular/core";
-import { NavHelperService } from "src/app/services/nav-helper.service";
-import { Application } from "src/app/models/Application.model";
-import { ApplicationService } from "src/app/services/application.service";
+import {Component} from "@angular/core";
+import {NavHelperService} from "src/app/services/nav-helper.service";
+import {HeroService} from "../../services/hero.service";
 
 @Component({
-  selector: "app-dashboard",
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.css"]
+    selector: "app-dashboard",
+    templateUrl: "./dashboard.component.html",
+    styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent {
 
-  public get apps(): Application[] {
-    return this.appService.currentApps;
-  }
+    public get ready(): boolean {
+        return this.heroService.ready;
+    }
 
-  constructor(
-    private navHelper: NavHelperService,
-    private appService: ApplicationService,
-  ) { }
+    public get heroes(): any[] {
+        return this.heroService.allHeroes;
+    }
 
-  public goToInfo() {
-    this.navHelper.goToInfo();
-  }
+    constructor(
+        private navHelper: NavHelperService,
+        private heroService: HeroService,
+    ) {
+    }
 
-  public goBookmarks() {
-    this.navHelper.goBookmarks();
-  }
+    public goToInfo() {
+        this.navHelper.goToInfo();
+    }
 
 }
