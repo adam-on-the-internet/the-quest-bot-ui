@@ -1,34 +1,95 @@
 <app-card [title]="heroTitle" [subtitle]="heroSubtitle" *ngIf="hasHero">
-    <!--    TODO hero details here -->
     <section id="recent-update">
         <h4>
-            Recent Update
+            {{recentUpdateText}}
         </h4>
         <p>
             <em>
-                {{hero.announcement}}
+                {{recentUpdate}}
             </em>
         </p>
     </section>
-    <hr>
+    <section id="chapter" *ngIf="hero.chapterInfo">
+        <hr>
+        <h4>Current Event</h4>
+        {{hero.chapterInfo | json}}
+    </section>
+    <section id="quest" *ngIf="hero.questInfo">
+        <hr>
+        <h4>Current Quest</h4>
+        {{hero.questInfo | json}}
+    </section>
     <section id="stats">
+        <hr>
         <h4>
             Stats
         </h4>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-item-group">
+                    <li class="list-item">
+                        Strength: {{hero.stats.strength}}
+                    </li>
+                    <li class="list-item">
+                        Dexterity: {{hero.stats.dexterity}}
+                    </li>
+                    <li class="list-item">
+                        Wisdom: {{hero.stats.wisdom}}
+                    </li>
+                    <li class="list-item">
+                        Charisma: {{hero.stats.charisma}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-item-group">
+                    <li class="list-item">
+                        Perk: {{hero.stats.ability}}
+                    </li>
+                    <li class="list-item">
+                        Weakness: {{hero.stats.weakness}}
+                    </li>
+                    <li class="list-item">
+                        Equipped Item: {{hero.stats.item}}
+                    </li>
+                    <li class="list-item">
+                        Current Ally: {{hero.stats.ally}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="legacy">
+        <hr>
+        <h4>Legacy</h4>
         <p>
-            Coming soon...
-<!--            backstory-->
-<!--            stats-->
-<!--            ability-->
-<!--            weakness-->
-<!--            item-->
-<!--            ally-->
+            Backstory: {{hero.backstory}}
+        </p>
+        <p>
+            Story Told: {{hero.startDate | date:'short'}}
+            to
+            <span *ngIf="hero.deathDate">
+                {{hero.deathDate | date:'short'}}
+            </span>
+            <span *ngIf="!hero.deathDate">
+                ???
+            </span>
+        </p>
+        <p>
+            Total Distance Travelled:
+            {{hero.distanceTravelledTotal}} miles
+        </p>
+        <p>
+            Unique Chapters:
+            {{hero.uniqueChapterCount}} chapters
+        </p>
+        <p>
+            Unique Quests:
+            {{hero.uniqueQuestCount}} quests
         </p>
     </section>
-<!--    start date / end date -->
-<!--    quest progress -->
-    <hr>
     <section id="journal">
+        <hr>
         <h4>
             Journal
         </h4>
@@ -37,9 +98,5 @@
                 {{message}}
             </li>
         </ul>
-    </section>
-    <hr>
-    <section id="json">
-        {{hero | json}}
     </section>
 </app-card>

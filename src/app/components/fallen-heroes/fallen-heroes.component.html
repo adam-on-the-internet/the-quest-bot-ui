@@ -8,7 +8,7 @@
                 <ul class="list-group" *ngIf="ready; else loading">
                     <li class="list-group-item" *ngFor="let hero of fallenHeroes">
                         <button class="btn btn-outline-primary btn-block" (click)="goToHeroDisplay(hero)">
-                            {{hero.name}} (Level {{hero.level}})
+                            {{hero.name}} Lvl. {{hero.level}} ({{hero.age}} updates)
                         </button>
                     </li>
                 </ul>
