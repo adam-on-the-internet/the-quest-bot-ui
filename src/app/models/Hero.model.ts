@@ -16,6 +16,7 @@ export interface Hero {
     uniqueQuestCount: number;
     uniqueChapterCount: number;
     age: number;
+    seed: number;
 }
 
 export interface BasicDetails {
@@ -30,6 +31,6 @@ export interface HeroStats {
     charisma: number;
     item: number;
     ally: number;
-    ability: number;
-    weakness: number;
+    advantage: number;
+    disadvantage: number;
 }

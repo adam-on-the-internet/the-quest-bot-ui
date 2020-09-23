@@ -2,26 +2,24 @@
 <app-body>
     <div class="row">
         <div class="col-md-6 my-3">
-            <app-card>
-                <h3>Admin</h3>
+            <app-card [title]="'Admin'">
                 <p>
-                    <button class="btn btn-danger" (click)="deleteAllHeroes()">
+                    <button class="btn btn-block btn-danger" (click)="deleteAllHeroes()">
                         Delete All Heroes
                     </button>
                 </p>
                 <p>
-                    <button class="btn btn-primary" (click)="advanceHero()">
+                    <button class="btn btn-block btn-primary" (click)="advanceHero()">
                         Advance Hero
                     </button>
                 </p>
             </app-card>
         </div>
         <div class="col-md-6 my-3">
-            <app-card>
-                <h3>Advanced Settings</h3>
+            <app-card [title]="'Advanced Settings'">
                 <p>
                     <a
-                            class="btn btn-primary"
+                            class="btn btn-block btn-primary"
                             href="https://aoti-user-management-ui.herokuapp.com/dashboard"
                             target="_blank"
                     >
