@@ -9,15 +9,15 @@
             </em>
         </p>
     </section>
-    <section id="chapter" *ngIf="hero.chapterInfo">
-        <hr>
-        <h4>Current Event</h4>
-        {{hero.chapterInfo | json}}
-    </section>
     <section id="quest" *ngIf="hero.questInfo">
         <hr>
-        <h4>Current Quest</h4>
-        {{hero.questInfo | json}}
+        <h4>Current Quest: {{hero.questInfo.title}}</h4>
+        <p>{{hero.questInfo.flavorText}}</p>
+    </section>
+    <section id="chapter" *ngIf="hero.chapterInfo">
+        <hr>
+        <h4>Current Event: {{hero.chapterInfo.title}}</h4>
+        <p>{{hero.chapterInfo.flavorText}}</p>
     </section>
     <section id="stats">
         <hr>

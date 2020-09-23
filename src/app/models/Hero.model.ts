@@ -11,11 +11,16 @@ export interface Hero {
     deathDate: number;
     distanceTravelledTotal: number;
     stats: HeroStats;
-    questInfo: any;
-    chapterInfo: any;
+    questInfo: BasicDetails;
+    chapterInfo: BasicDetails;
     uniqueQuestCount: number;
     uniqueChapterCount: number;
     age: number;
+}
+
+export interface BasicDetails {
+    title: string;
+    flavorText: string;
 }
 
 export interface HeroStats {
