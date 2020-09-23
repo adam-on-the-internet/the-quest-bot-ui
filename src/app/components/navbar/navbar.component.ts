@@ -1,60 +1,59 @@
-import { Component } from "@angular/core";
-import { NavHelperService } from "src/app/services/nav-helper.service";
-import { CookieHelper } from "src/app/utilities/cookie.util";
+import {Component} from "@angular/core";
+import {NavHelperService} from "src/app/services/nav-helper.service";
+import {CookieHelper} from "src/app/utilities/cookie.util";
+import {AdminService} from "../../services/admin.service";
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.css"]
+    selector: "app-navbar",
+    templateUrl: "./navbar.component.html",
+    styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent {
 
-  public get isLoggedIn(): boolean {
-    return CookieHelper.isLoggedOn;
-  }
-
-  public get isAdmin(): boolean {
-    return CookieHelper.getUserDetails().admin;
-  }
-
-  public get userEmail(): string {
-    if (this.isLoggedIn) {
-      return CookieHelper.getUserDetails().email;
-    } else {
-      return null;
+    public get isLoggedIn(): boolean {
+        return CookieHelper.isLoggedOn;
     }
-  }
 
-  constructor(
-    private navHelper: NavHelperService,
-  ) { }
+    public get isAdmin(): boolean {
+        return CookieHelper.getUserDetails().admin;
+    }
 
-  public goToDashboard(): void {
-    this.navHelper.goToDashboard();
-  }
+    constructor(
+        private navHelper: NavHelperService,
+        private adminService: AdminService,
+    ) {
+    }
 
-  public goToCurrentHero() {
-    this.navHelper.goToCurrentHero();
-  }
+    public goToDashboard(): void {
+        this.navHelper.goToDashboard();
+    }
 
-  public goToFallenHeroes() {
-    this.navHelper.goToFallenHeroes();
-  }
+    public goToCurrentHero() {
+        this.navHelper.goToCurrentHero();
+    }
 
-  public goToHeroStats() {
-    this.navHelper.goToHeroStats();
-  }
+    public goToFallenHeroes() {
+        this.navHelper.goToFallenHeroes();
+    }
 
-  public goToProfile(): void {
-    this.navHelper.goToProfile();
-  }
+    public goToHeroStats() {
+        this.navHelper.goToHeroStats();
+    }
 
-  public goToAdmin(): void {
-    this.navHelper.goToAdmin();
-  }
+    public goToProfile(): void {
+        this.navHelper.goToProfile();
+    }
 
-  public logout(): void {
-    CookieHelper.removeToken();
-    this.navHelper.goToLogin();
-  }
+    public goToAdmin(): void {
+        this.navHelper.goToAdmin();
+    }
+
+    public advance(): void {
+        this.adminService.advanceHero();
+    }
+
+    public logout(): void {
+        CookieHelper.removeToken();
+        this.navHelper.goToLogin();
+    }
 }
