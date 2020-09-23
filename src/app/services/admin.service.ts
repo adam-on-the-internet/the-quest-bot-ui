@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
@@ -9,7 +9,7 @@ import {HeroLoaderService} from "./hero-loader.service";
 const controller = "quest";
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root"
 })
 export class AdminService {
 

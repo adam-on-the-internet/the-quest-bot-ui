@@ -13,9 +13,9 @@ export interface Hero {
     stats: HeroStats;
     questInfo: any;
     chapterInfo: any;
-    uniqueQuestCount: number,
-    uniqueChapterCount: number,
-    age: number,
+    uniqueQuestCount: number;
+    uniqueChapterCount: number;
+    age: number;
 }
 
 export interface HeroStats {

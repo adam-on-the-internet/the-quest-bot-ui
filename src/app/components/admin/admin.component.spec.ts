@@ -6,6 +6,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {HeaderComponent} from "../header/header.component";
 import {BodyComponent} from "../body/body.component";
 import {LoadingComponent} from "../loading/loading.component";
+import {CardComponent} from "../card/card.component";
 
 describe("AdminComponent", () => {
     let component: AdminComponent;
@@ -14,7 +15,7 @@ describe("AdminComponent", () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                AdminComponent, HeaderComponent, BodyComponent, LoadingComponent
+                AdminComponent, HeaderComponent, BodyComponent, LoadingComponent, CardComponent
             ],
             imports: [HttpClientTestingModule, RouterTestingModule],
         })
