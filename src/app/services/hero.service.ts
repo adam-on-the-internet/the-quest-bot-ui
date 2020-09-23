@@ -10,15 +10,22 @@ export class HeroService {
     public fallenHeroes: Hero[] = null;
     public heroStats: HeroStats = null;
 
+    public retrievedFallenHeroes = false;
+    public retrievedCurrentHero = false;
+    public retrievedHeroStats = false;
+
     public get ready(): boolean {
-        return this.fallenHeroes !== null &&
-            this.currentHero !== null &&
-            this.heroStats !== null;
+        return this.retrievedCurrentHero &&
+            this.retrievedFallenHeroes &&
+            this.retrievedHeroStats;
     }
 
     public clearValues(): void {
         this.fallenHeroes = null;
         this.currentHero = null;
         this.heroStats = null;
+        this.retrievedFallenHeroes = false;
+        this.retrievedCurrentHero = false;
+        this.retrievedHeroStats = false;
     }
 }

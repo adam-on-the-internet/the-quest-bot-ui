@@ -33,6 +33,8 @@ export class HeroLoaderService {
             .subscribe((res) => this.heroService.currentHero = res,
                 (error) => {
                     console.log("get current hero failed");
+                }, () => {
+                    this.heroService.retrievedCurrentHero = true;
                 });
     }
 
@@ -41,6 +43,8 @@ export class HeroLoaderService {
             .subscribe((res) => this.heroService.fallenHeroes = res,
                 (error) => {
                     console.log("get fallen heroes failed");
+                }, () => {
+                    this.heroService.retrievedFallenHeroes = true;
                 });
     }
 
@@ -49,6 +53,8 @@ export class HeroLoaderService {
             .subscribe((res) => this.heroService.heroStats = res,
                 (error) => {
                     console.log("get hero stats failed");
+                }, () => {
+                    this.heroService.retrievedHeroStats = true;
                 });
     }
 

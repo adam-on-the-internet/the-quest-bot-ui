@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
 import {ServiceUrl} from "../constants/rest.constants";
 import {CookieHelper} from "../utilities/cookie.util";
+import {HeroLoaderService} from "./hero-loader.service";
 
 const controller = "quest";
 
@@ -14,6 +15,7 @@ export class AdminService {
 
     constructor(
         private http: HttpClient,
+        private heroLoader: HeroLoaderService,
     ) {
     }
 
@@ -24,6 +26,7 @@ export class AdminService {
                 (error) => {
                     console.log("delete failed");
                 }, () => {
+                    this.heroLoader.load();
                     console.log(response);
                 });
     }
@@ -35,6 +38,7 @@ export class AdminService {
                 (error) => {
                     console.log("advance failed");
                 }, () => {
+                    this.heroLoader.load();
                     console.log(response);
                 });
     }

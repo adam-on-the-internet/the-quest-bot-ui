@@ -17,6 +17,10 @@ export class FallenHeroesComponent {
         return this.heroService.fallenHeroes;
     }
 
+    public get hasHeroes(): boolean {
+        return this.fallenHeroes.length > 0;
+    }
+
     constructor(
         private heroService: HeroService,
         private navHelperService: NavHelperService,
