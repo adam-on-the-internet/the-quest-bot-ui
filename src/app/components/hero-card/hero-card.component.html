@@ -9,23 +9,13 @@
             </em>
         </p>
     </section>
-    <section id="quest" *ngIf="hero.questInfo">
-        <hr>
-        <h4>Current Quest: {{hero.questInfo.title}}</h4>
-        <p>{{hero.questInfo.flavorText}}</p>
-    </section>
-    <section id="chapter" *ngIf="hero.chapterInfo">
-        <hr>
-        <h4>Current Event: {{hero.chapterInfo.title}}</h4>
-        <p>{{hero.chapterInfo.flavorText}}</p>
-    </section>
     <section id="stats">
         <hr>
-        <h4>
-            Stats
-        </h4>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
+                <h4>
+                    Stats
+                </h4>
                 <ul class="list-item-group">
                     <li class="list-item">
                         Strength: {{hero.stats.strength}}
@@ -41,7 +31,23 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
+                <h4>
+                    Special Moves
+                </h4>
+                <ul class="list-item-group">
+                    <li class="list-item" *ngFor="let move of hero.specialMoves">
+                        {{move.name}}
+                        <span class="badge badge-dark">
+                            {{displayType(move)}} x{{move.multiplier}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>
+                    Other
+                </h4>
                 <ul class="list-item-group">
                     <li class="list-item">
                         Advantage: {{hero.stats.advantage}}
@@ -50,14 +56,23 @@
                         Disadvantage: {{hero.stats.disadvantage}}
                     </li>
                     <li class="list-item">
-                        Equipped Item: {{hero.stats.item}}
+                        Inventory:
+                        <span *ngIf="hero.stats.inventory.length === 0">No items.</span>
+                        <span *ngFor="let item of hero.stats.inventory">{{item}}</span>
                     </li>
                     <li class="list-item">
-                        Current Ally: {{hero.stats.ally}}
+                        Party:
+                        <span *ngIf="hero.stats.party.length === 0">No allies.</span>
+                        <span *ngFor="let ally of hero.stats.party">{{ally}}</span>
                     </li>
                 </ul>
             </div>
         </div>
+    </section>
+    <section id="quest" *ngIf="hero.questInfo">
+        <hr>
+        <h4>Current Quest: {{hero.questInfo.title}}</h4>
+        <p>{{hero.questInfo.flavorText}}</p>
     </section>
     <section id="legacy">
         <hr>

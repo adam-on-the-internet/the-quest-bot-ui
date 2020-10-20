@@ -1,5 +1,6 @@
 import {Component, Input} from "@angular/core";
-import {Hero} from "../../models/Hero.model";
+import {Hero, SpecialMove} from "../../models/Hero.model";
+import {BooleanHelper} from "../../utilities/boolean.util";
 
 @Component({
     selector: "app-hero-card",
@@ -14,7 +15,8 @@ export class HeroCardComponent {
     }
 
     public get heroSubtitle(): string {
-        return `${this.hero.hpText} | ${this.hero.age} updates`;
+        const distanceText = BooleanHelper.hasValue(this.hero.distanceText) ? `${this.hero.distanceText} |` : "";
+        return `${this.hero.hpText} | ${distanceText} ${this.hero.age} updates | ${this.hero.expPoints} exp`;
     }
 
     public get hasHero(): boolean {
@@ -27,6 +29,17 @@ export class HeroCardComponent {
 
     public get recentUpdate(): string {
         return this.removeNoteFromUpdate(this.hero.announcement);
+    }
+
+    public displayType(move: SpecialMove): string {
+        return move.type
+            .replace(/_/g, ' ')
+            .replace(
+                /\w\S*/g,
+                function (txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                }
+            );
     }
 
     public removeNoteFromUpdate(update) {
