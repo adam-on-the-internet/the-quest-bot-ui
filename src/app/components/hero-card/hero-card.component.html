@@ -12,7 +12,7 @@
     <section id="stats">
         <hr>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h4>
                     Stats
                 </h4>
@@ -31,7 +31,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <h4>
                     Special Moves
                 </h4>
@@ -50,20 +50,13 @@
                 </h4>
                 <ul class="list-item-group">
                     <li class="list-item">
-                        Advantage: {{hero.stats.advantage}}
+                        Traits: {{hero.stats.advantage}} and {{hero.stats.disadvantage}}
                     </li>
-                    <li class="list-item">
-                        Disadvantage: {{hero.stats.disadvantage}}
+                    <li class="list-item" *ngFor="let item of hero.stats.inventory">
+                        Item: {{item}}
                     </li>
-                    <li class="list-item">
-                        Inventory:
-                        <span *ngIf="hero.stats.inventory.length === 0">No items.</span>
-                        <span *ngFor="let item of hero.stats.inventory">{{item}}</span>
-                    </li>
-                    <li class="list-item">
-                        Party:
-                        <span *ngIf="hero.stats.party.length === 0">No allies.</span>
-                        <span *ngFor="let ally of hero.stats.party">{{ally}}</span>
+                    <li class="list-item" *ngFor="let ally of hero.stats.party">
+                        Ally: {{ally}}
                     </li>
                 </ul>
             </div>
