@@ -10,6 +10,8 @@ import {BooleanHelper} from "../../utilities/boolean.util";
 export class HeroCardComponent {
     @Input() public hero: Hero = null;
 
+    public showFullMessage = false;
+
     public get heroTitle(): string {
         return `${this.hero.name} Lvl. ${this.hero.level}`;
     }
@@ -23,12 +25,19 @@ export class HeroCardComponent {
         return this.hero !== null;
     }
 
-    public get recentUpdateText(): string {
-        return this.hero.storyOver ? "In Memoriam" : "Recent Update";
-    }
-
     public get recentUpdate(): string {
         return this.removeNoteFromUpdate(this.hero.announcement);
+    }
+
+    public abbreviateJournalMessage(message: string) {
+        if (this.showFullMessage) {
+            return message;
+        }
+        return this.removeNoteFromUpdate(message);
+    }
+
+    public setFullMessage(show: boolean): void {
+        this.showFullMessage = show;
     }
 
     public displayType(move: SpecialMove): string {

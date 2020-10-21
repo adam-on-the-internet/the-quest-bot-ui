@@ -1,8 +1,5 @@
 <app-card [title]="heroTitle" [subtitle]="heroSubtitle" *ngIf="hasHero">
     <section id="recent-update">
-        <h4>
-            {{recentUpdateText}}
-        </h4>
         <p>
             <em>
                 {{recentUpdate}}
@@ -12,31 +9,33 @@
     <section id="stats">
         <hr>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h4>
                     Stats
                 </h4>
-                <ul class="list-item-group">
-                    <li class="list-item">
+                <ul class="list-group">
+                    <li class="list-group-item">
                         Strength: {{hero.stats.strength}}
                     </li>
-                    <li class="list-item">
+                    <li class="list-group-item">
                         Dexterity: {{hero.stats.dexterity}}
                     </li>
-                    <li class="list-item">
+                    <li class="list-group-item">
                         Wisdom: {{hero.stats.wisdom}}
                     </li>
-                    <li class="list-item">
+                    <li class="list-group-item">
                         Charisma: {{hero.stats.charisma}}
                     </li>
+                    <li class="list-group-item">{{hero.stats.advantage}}</li>
+                    <li class="list-group-item">{{hero.stats.disadvantage}}</li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h4>
                     Special Moves
                 </h4>
-                <ul class="list-item-group">
-                    <li class="list-item" *ngFor="let move of hero.specialMoves">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let move of hero.specialMoves">
                         {{move.name}}
                         <span class="badge badge-dark">
                             {{displayType(move)}} x{{move.multiplier}}
@@ -44,28 +43,65 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h4>
-                    Other
+                    Inventory
                 </h4>
-                <ul class="list-item-group">
-                    <li class="list-item">
-                        Traits: {{hero.stats.advantage}} and {{hero.stats.disadvantage}}
+                <p *ngIf="hero.inventory.length === 0">
+                    No items.
+                </p>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let item of hero.inventory">
+                        <i class="fa fa-cube"></i>
+                        {{item}}
                     </li>
-                    <li class="list-item" *ngFor="let item of hero.stats.inventory">
-                        Item: {{item}}
-                    </li>
-                    <li class="list-item" *ngFor="let ally of hero.stats.party">
-                        Ally: {{ally}}
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    Party
+                </h4>
+                <p *ngIf="hero.party.length === 0">
+                    No allies.
+                </p>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let ally of hero.party">
+                        <i class="fa fa-user"></i>
+                        {{ally}}
                     </li>
                 </ul>
             </div>
         </div>
     </section>
-    <section id="quest" *ngIf="hero.questInfo">
+    <section id="completed-quests">
         <hr>
-        <h4>Current Quest: {{hero.questInfo.title}}</h4>
-        <p>{{hero.questInfo.flavorText}}</p>
+        <h4>Quests</h4>
+        <p *ngIf="hero.currentQuest">
+            Current Quest: {{hero.currentQuest}} - {{hero.currentQuestDetails}}
+        </p>
+        <p>
+            Completed {{hero.completedQuests.length}} quests ({{hero.uniqueCompletedQuests.length}} unique)
+        </p>
+        <p *ngIf="hero.completedQuests.length > 0">
+            <span class="badge badge-info mr-2" *ngFor="let quest of hero.completedQuests">
+                {{quest}}
+            </span>
+        </p>
+    </section>
+    <section id="completed-chapters">
+        <hr>
+        <h4>Chapters</h4>
+        <p *ngIf="hero.currentChapter">
+            Current Chapter:  {{hero.currentChapter}}
+        </p>
+        <p>
+            Completed {{hero.completedChapters.length}} chapters ({{hero.uniqueCompletedChapters.length}} unique)
+        </p>
+        <p *ngIf="hero.completedChapters.length > 0">
+            <span class="badge badge-info mr-2" *ngFor="let chapter of hero.completedChapters">
+                {{chapter}}
+            </span>
+        </p>
     </section>
     <section id="legacy">
         <hr>
@@ -87,23 +123,25 @@
             Total Distance Travelled:
             {{hero.distanceTravelledTotal}} miles
         </p>
-        <p>
-            Unique Chapters:
-            {{hero.uniqueChapters.length}} chapters
-        </p>
-        <p>
-            Unique Quests:
-            {{hero.uniqueQuests.length}} quests
-        </p>
     </section>
     <section id="journal">
         <hr>
         <h4>
             Journal
+            <span class="btn-group ml-5">
+                <button class="btn btn-secondary" [class.active]="showFullMessage" (click)="setFullMessage(true)">
+                    <i class="fa fa-check" *ngIf="showFullMessage"></i>
+                    Show Full Messages
+                </button>
+                <button class="btn btn-secondary" [class.active]="!showFullMessage" (click)="setFullMessage(false)">
+                    <i class="fa fa-check" *ngIf="!showFullMessage"></i>
+                    Abbreviate Messages
+                </button>
+            </span>
         </h4>
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let message of hero.journal">
-                {{message}}
+                {{abbreviateJournalMessage(message)}}
             </li>
         </ul>
     </section>

@@ -4,20 +4,26 @@ export interface Hero {
     _id: string;
     hpText: string;
     distanceText: string;
+    currentQuest: string;
+    currentQuestDetails: string;
+    currentChapter: string;
     level: number;
     expPoints: number;
+    status: number;
     specialMoves: SpecialMove[]
     stats: HeroStats;
-    questInfo: BasicDetails;
+    inventory: string[];
+    party: string[];
     storyOver: boolean;
     journal: string[];
     backstory: string;
     startDate: number;
     deathDate: number;
-    uniqueQuests: any[];
-    uniqueChapters: any[];
+    completedChapters: string[];
+    completedQuests: string[];
+    uniqueCompletedChapters: string[];
+    uniqueCompletedQuests: string[];
     distanceTravelledTotal: number;
-    status: number;
     age: number;
     seed: number;
 }
@@ -28,18 +34,11 @@ export interface SpecialMove {
     type: string;
 }
 
-export interface BasicDetails {
-    title: string;
-    flavorText: string;
-}
-
 export interface HeroStats {
     strength: number;
     dexterity: number;
     wisdom: number;
     charisma: number;
-    inventory: string[];
-    party: string[];
     advantage: string;
     disadvantage: string;
 }
