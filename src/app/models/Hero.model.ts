@@ -14,8 +14,8 @@ export interface Hero {
     backstory: string;
     startDate: number;
     deathDate: number;
-    uniqueQuestCount: number;
-    uniqueChapterCount: number;
+    uniqueQuests: any[];
+    uniqueChapters: any[];
     distanceTravelledTotal: number;
     status: number;
     age: number;
