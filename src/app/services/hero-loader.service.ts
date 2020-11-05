@@ -60,7 +60,7 @@ export class HeroLoaderService {
 
     private getCurrentHero(): Observable<Hero> {
         const url = RestUrlBuilder.buildRestUrl({
-            service: ServiceUrl.NonProdExpress,
+            service: ServiceUrl.BasicExpress,
             controller,
             collection: "currentHero",
         });
@@ -69,7 +69,7 @@ export class HeroLoaderService {
 
     private getFallenHeroes(): Observable<Hero[]> {
         const url = RestUrlBuilder.buildRestUrl({
-            service: ServiceUrl.NonProdExpress,
+            service: ServiceUrl.BasicExpress,
             controller,
             collection: "fallenHeroes",
         });
@@ -78,7 +78,7 @@ export class HeroLoaderService {
 
     private getHeroStats(): Observable<HeroStats> {
         const url = RestUrlBuilder.buildRestUrl({
-            service: ServiceUrl.NonProdExpress,
+            service: ServiceUrl.BasicExpress,
             controller,
             collection: "heroStats",
         });

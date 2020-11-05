@@ -45,7 +45,7 @@ export class AdminService {
 
     private submitDelete(): Observable<any> {
         const url = RestUrlBuilder.buildRestUrl({
-            service: ServiceUrl.NonProdExpress,
+            service: ServiceUrl.BasicExpress,
             controller,
             collection: "all",
         });
@@ -54,7 +54,7 @@ export class AdminService {
 
     private submitAdvance(): Observable<any> {
         const url = RestUrlBuilder.buildRestUrl({
-            service: ServiceUrl.NonProdExpress,
+            service: ServiceUrl.BasicExpress,
             controller,
             collection: "advanceCurrentHero",
         });
