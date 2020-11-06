@@ -26,21 +26,10 @@
                     <li class="list-group-item">
                         Charisma: {{hero.stats.charisma}}
                     </li>
-                    <li class="list-group-item">{{hero.stats.advantage}}</li>
-                    <li class="list-group-item">{{hero.stats.disadvantage}}</li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h4>
-                    Special Moves
-                </h4>
-                <ul class="list-group">
-                    <li class="list-group-item" *ngFor="let move of hero.specialMoves">
-                        {{move.name}}
-                        <span class="badge badge-dark">
-                            {{displayType(move)}} x{{move.multiplier}}
-                        </span>
-                    </li>
+                    <li class="list-group-item">(+) {{hero.stats.advantage}}</li>
+                    <li class="list-group-item">(-) {{hero.stats.disadvantage}}</li>
+                    <li class="list-group-item">Race: {{hero.race.toLowerCase()}}</li>
+                    <li class="list-group-item">Alignment: {{hero.alignment.toLowerCase()}}</li>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -50,14 +39,12 @@
                 <p *ngIf="hero.inventory.length === 0">
                     No items.
                 </p>
-                <ul class="list-group">
+                <ul class="list-group mb-4">
                     <li class="list-group-item" *ngFor="let item of hero.inventory">
                         <i class="fa fa-cube"></i>
                         {{item}}
                     </li>
                 </ul>
-            </div>
-            <div class="col-md-3">
                 <h4>
                     Party
                 </h4>
@@ -68,6 +55,38 @@
                     <li class="list-group-item" *ngFor="let ally of hero.party">
                         <i class="fa fa-user"></i>
                         {{ally}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    Standard Moves
+                </h4>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let move of hero.standardMoves">
+                        {{move.name}}
+                        <span class="badge badge-info">
+                            {{displayType(move)}}
+                            <span *ngIf="move.multiplier">
+                                x{{move.multiplier}}
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    Special Moves
+                </h4>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let move of hero.specialMoves">
+                        {{move.name}}
+                        <span class="badge badge-info">
+                            {{displayType(move)}}
+                            <span *ngIf="move.multiplier">
+                                x{{move.multiplier}}
+                            </span>
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -107,9 +126,6 @@
         <hr>
         <h4>Legacy</h4>
         <p>
-            Backstory: {{hero.backstory}}
-        </p>
-        <p>
             Story Told: {{hero.startDate | date:'short'}}
             to
             <span *ngIf="hero.deathDate">
@@ -122,6 +138,10 @@
         <p>
             Total Distance Travelled:
             {{hero.distanceTravelledTotal}} miles
+        </p>
+        <p>
+            Total Damage Taken:
+            {{hero.damageTakenTotal}} miles
         </p>
     </section>
     <section id="journal">

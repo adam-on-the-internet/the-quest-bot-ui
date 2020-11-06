@@ -1,8 +1,11 @@
 export interface Hero {
     announcement: string;
     name: string;
+    race: string;
+    alignment: string;
     _id: string;
     hpText: string;
+    expText: string;
     distanceText: string;
     currentQuest: string;
     currentQuestDetails: string;
@@ -11,6 +14,7 @@ export interface Hero {
     expPoints: number;
     status: number;
     specialMoves: SpecialMove[];
+    standardMoves: SpecialMove[];
     stats: HeroStats;
     inventory: string[];
     party: string[];
@@ -24,6 +28,7 @@ export interface Hero {
     uniqueCompletedChapters: string[];
     uniqueCompletedQuests: string[];
     distanceTravelledTotal: number;
+    damageTakenTotal: number;
     age: number;
     seed: number;
 }

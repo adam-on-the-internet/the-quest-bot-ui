@@ -18,7 +18,7 @@ export class HeroCardComponent {
 
     public get heroSubtitle(): string {
         const distanceText = BooleanHelper.hasValue(this.hero.distanceText) ? `${this.hero.distanceText} |` : "";
-        return `${this.hero.hpText} | ${distanceText} ${this.hero.age} updates | ${this.hero.expPoints} exp`;
+        return `${this.hero.hpText} | ${distanceText} ${this.hero.expText} | ${this.hero.age} updates`;
     }
 
     public get hasHero(): boolean {
