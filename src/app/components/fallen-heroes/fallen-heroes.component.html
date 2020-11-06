@@ -1,10 +1,7 @@
-<app-header
-        [title]="'Fallen Heroes'"
-></app-header>
 <app-body>
     <div class="row">
         <div class="col-md-12 my-3">
-            <app-card>
+            <app-card [title]="'Fallen Heroes'">
                 <ng-container *ngIf="ready; else loading">
                     <p *ngIf="!hasHeroes">
                         No Fallen Heroes
