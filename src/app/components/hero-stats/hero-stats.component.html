@@ -1,10 +1,25 @@
-<app-header
-        [title]="'Hero Stats'"
-></app-header>
 <app-body>
     <div class="row">
         <div class="col-md-12 my-3">
-            <app-card [title]="'Coming soon...'"></app-card>
+            <app-card [title]="'Hero Stats'">
+                <ng-container *ngIf="ready; else loading">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Heroes Created: {{stats.heroesCreated}}
+                        </li>
+                        <li class="list-group-item">
+                            Chapters Completed: {{stats.chaptersCompleted}}
+                        </li>
+                        <li class="list-group-item">
+                            Quests Completed: {{stats.questsCompleted}}
+                        </li>
+                    </ul>
+                </ng-container>
+            </app-card>
         </div>
     </div>
 </app-body>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

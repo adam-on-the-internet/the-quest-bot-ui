@@ -42,10 +42,9 @@ export class HeroCardComponent {
 
     public displayType(move: SpecialMove): string {
         return move.type
-            .replace(/_/g, ' ')
+            .replace(/_/g, " ")
             .replace(
-                /\w\S*/g,
-                function (txt) {
+                /\w\S*/g, (txt) => {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
                 }
             );

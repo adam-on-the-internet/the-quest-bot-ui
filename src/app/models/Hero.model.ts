@@ -10,7 +10,7 @@ export interface Hero {
     level: number;
     expPoints: number;
     status: number;
-    specialMoves: SpecialMove[]
+    specialMoves: SpecialMove[];
     stats: HeroStats;
     inventory: string[];
     party: string[];

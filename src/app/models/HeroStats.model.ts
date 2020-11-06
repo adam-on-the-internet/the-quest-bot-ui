@@ -1,3 +1,5 @@
 export interface HeroStats {
-    fallenHeroes: number;
+    heroesCreated: number;
+    questsCompleted: number;
+    chaptersCompleted: number;
 }

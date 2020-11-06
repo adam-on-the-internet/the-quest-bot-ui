@@ -1,15 +1,24 @@
-import { Component, OnInit } from "@angular/core";
+import {Component} from "@angular/core";
+import {HeroService} from "../../services/hero.service";
 
 @Component({
-  selector: "app-hero-stats",
-  templateUrl: "./hero-stats.component.html",
-  styleUrls: ["./hero-stats.component.scss"]
+    selector: "app-hero-stats",
+    templateUrl: "./hero-stats.component.html",
+    styleUrls: ["./hero-stats.component.scss"]
 })
-export class HeroStatsComponent implements OnInit {
+export class HeroStatsComponent {
 
-  constructor() { }
+    public get stats() {
+        return this.heroService.heroStats;
+    }
 
-  ngOnInit() {
-  }
+    public get ready(): boolean {
+        return this.heroService.retrievedHeroStats;
+    }
+
+    constructor(
+        private heroService: HeroService,
+    ) {
+    }
 
 }
