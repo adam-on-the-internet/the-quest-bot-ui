@@ -1,6 +1,9 @@
 <app-card [title]="heroTitle" [subtitle]="heroSubtitle" *ngIf="hasHero">
     <section id="recent-update">
         <p>
+            <span *ngIf="!hero.storyOver">
+            Recent update:
+            </span>
             <em>
                 {{recentUpdate}}
             </em>
@@ -13,7 +16,7 @@
                 <h4>
                     Stats
                 </h4>
-                <ul class="list-group">
+                <ul class="list-group mb-4">
                     <li class="list-group-item">
                         Strength: {{hero.stats.strength}}
                     </li>
@@ -26,10 +29,11 @@
                     <li class="list-group-item">
                         Charisma: {{hero.stats.charisma}}
                     </li>
+                </ul>
+                <h4>Traits</h4>
+                <ul class="list-group">
                     <li class="list-group-item">(+) {{hero.stats.advantage}}</li>
                     <li class="list-group-item">(-) {{hero.stats.disadvantage}}</li>
-                    <li class="list-group-item">Race: {{hero.race.toLowerCase()}}</li>
-                    <li class="list-group-item">Alignment: {{hero.alignment.toLowerCase()}}</li>
                 </ul>
             </div>
             <div class="col-md-3">
