@@ -7,6 +7,7 @@ import {CookieHelper} from "../utilities/cookie.util";
 import {HeroService} from "./hero.service";
 import {Hero} from "../models/Hero.model";
 import {HeroStats} from "../models/HeroStats.model";
+import {World} from "../models/World.model";
 
 const controller = "quest";
 
@@ -26,6 +27,16 @@ export class HeroLoaderService {
         this.loadCurrentHero();
         this.loadFallenHeroes();
         this.loadHeroStats();
+        this.loadHeroWorld();
+    }
+
+    public throwItem(item: string): Observable<any> {
+        const url = RestUrlBuilder.buildRestUrl({
+            service: ServiceUrl.BasicExpress,
+            controller,
+            collection: "path/" + item,
+        });
+        return this.http.post(url, null, CookieHelper.authHeaders) as Observable<any>;
     }
 
     private loadCurrentHero() {
@@ -58,6 +69,16 @@ export class HeroLoaderService {
                 });
     }
 
+    private loadHeroWorld() {
+        this.getHeroWorld()
+            .subscribe((res) => this.heroService.heroWorld = res,
+                (error) => {
+                    console.log("get hero world failed");
+                }, () => {
+                    this.heroService.retrievedHeroWorld = true;
+                });
+    }
+
     private getCurrentHero(): Observable<Hero> {
         const url = RestUrlBuilder.buildRestUrl({
             service: ServiceUrl.BasicExpress,
@@ -83,5 +104,14 @@ export class HeroLoaderService {
             collection: "heroStats",
         });
         return this.http.get(url, CookieHelper.authHeaders) as Observable<HeroStats>;
+    }
+
+    private getHeroWorld(): Observable<World> {
+        const url = RestUrlBuilder.buildRestUrl({
+            service: ServiceUrl.BasicExpress,
+            controller,
+            collection: "world",
+        });
+        return this.http.get(url, CookieHelper.authHeaders) as Observable<World>;
     }
 }

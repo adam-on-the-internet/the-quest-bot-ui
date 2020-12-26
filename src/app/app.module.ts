@@ -22,6 +22,7 @@ import {FallenHeroesComponent} from "./components/fallen-heroes/fallen-heroes.co
 import {HeroStatsComponent} from "./components/hero-stats/hero-stats.component";
 import {HeroDisplayComponent} from "./components/hero-display/hero-display.component";
 import {HeroCardComponent} from "./components/hero-card/hero-card.component";
+import { WorldComponent } from "./components/world/world.component";
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import {HeroCardComponent} from "./components/hero-card/hero-card.component";
         HeroStatsComponent,
         HeroDisplayComponent,
         HeroCardComponent,
+        WorldComponent,
     ],
     imports: [
         BrowserModule,

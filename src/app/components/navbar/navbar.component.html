@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
     <a class="navbar-brand" (click)="goToDashboard()" id="app-title">
-        <i class="fa fa-star"></i>
+        <i class="fa fa-map"></i>
         <span id="app-title">
       The Quest Bot
     </span>
@@ -22,10 +22,13 @@
                 <a class="nav-link" (click)="goToCurrentHero()">Current Hero</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" (click)="goToWorld()">World</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" (click)="goToFallenHeroes()">Fallen Heroes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="goToHeroStats()">Hero Stats</a>
+                <a class="nav-link" (click)="goToHeroStats()">Stats</a>
             </li>
             <ng-container *ngIf="isLoggedIn">
                 <li class="nav-item">

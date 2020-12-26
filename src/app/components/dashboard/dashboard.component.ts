@@ -21,6 +21,10 @@ export class DashboardComponent {
         this.navHelper.goToFallenHeroes();
     }
 
+    public goToWorld() {
+        this.navHelper.goToWorld();
+    }
+
     public goToHeroStats() {
         this.navHelper.goToHeroStats();
     }

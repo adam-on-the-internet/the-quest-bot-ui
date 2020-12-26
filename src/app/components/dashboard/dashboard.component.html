@@ -4,7 +4,7 @@
 ></app-header>
 <app-body>
     <div class="row">
-        <div class="col-md-4 my-3">
+        <div class="col-md-6 my-3">
             <a (click)="goToCurrentHero()">
                 <app-card [title]="'Current Hero Story'" [icon]="'fa-street-view'" [useHover]="true">
                     <p>
@@ -13,7 +13,16 @@
                 </app-card>
             </a>
         </div>
-        <div class="col-md-4 my-3">
+        <div class="col-md-6 my-3">
+            <a (click)="goToWorld()">
+                <app-card [title]="'World'" [icon]="'fa-globe'" [useHover]="true">
+                    <p>
+                        See the current world.
+                    </p>
+                </app-card>
+            </a>
+        </div>
+        <div class="col-md-6 my-3">
             <a (click)="goToFallenHeroes()">
                 <app-card [title]="'Hall of Fallen Heroes'" [icon]="'fa-book'" [useHover]="true">
                     <p>
@@ -22,7 +31,7 @@
                 </app-card>
             </a>
         </div>
-        <div class="col-md-4 my-3">
+        <div class="col-md-6 my-3">
             <a (click)="goToHeroStats()">
                 <app-card [title]="'Hero Statistics'" [icon]="'fa-line-chart'" [useHover]="true">
                     <p>

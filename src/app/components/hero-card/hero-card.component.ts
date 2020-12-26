@@ -1,6 +1,7 @@
 import {Component, Input} from "@angular/core";
 import {Hero, SpecialMove} from "../../models/Hero.model";
 import {BooleanHelper} from "../../utilities/boolean.util";
+import {HeroLoaderService} from "../../services/hero-loader.service";
 
 @Component({
     selector: "app-hero-card",
@@ -11,6 +12,15 @@ export class HeroCardComponent {
     @Input() public hero: Hero = null;
 
     public showFullMessage = false;
+
+    public itemsToThrow = [
+        {name: "APPLE", description: "+5 hp"},
+        {name: "SNAKE", description: "-5 hp"},
+    ];
+
+    public get pathOccupied(): boolean {
+        return this.hero.path !== null;
+    }
 
     public get heroTitle(): string {
         return `${this.hero.name} ~ Lvl. ${this.hero.level} ~ ${this.hero.race.toLowerCase()} ~ ${this.hero.alignment.toLowerCase()}`;
@@ -29,11 +39,29 @@ export class HeroCardComponent {
         return this.removeNoteFromUpdate(this.hero.announcement);
     }
 
+    constructor(
+        private heroLoaderService: HeroLoaderService,
+    ) {
+    }
+
     public abbreviateJournalMessage(message: string) {
         if (this.showFullMessage) {
             return message;
         }
         return this.removeNoteFromUpdate(message);
+    }
+
+    public throwItemInPath(item: string): void {
+        let response;
+        this.heroLoaderService.throwItem(item)
+            .subscribe((res) => response = res,
+            () => {
+                console.log(1);
+            },
+            () => {
+                console.log(2);
+                this.heroLoaderService.load();
+            });
     }
 
     public setFullMessage(show: boolean): void {

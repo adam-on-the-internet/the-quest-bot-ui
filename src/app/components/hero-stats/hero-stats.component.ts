@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {HeroService} from "../../services/hero.service";
+import {HeroStats} from "../../models/HeroStats.model";
 
 @Component({
     selector: "app-hero-stats",
@@ -8,7 +9,7 @@ import {HeroService} from "../../services/hero.service";
 })
 export class HeroStatsComponent {
 
-    public get stats() {
+    public get stats(): HeroStats {
         return this.heroService.heroStats;
     }
 

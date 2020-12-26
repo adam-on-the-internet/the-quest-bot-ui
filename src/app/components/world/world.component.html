@@ -1,0 +1,50 @@
+<app-body>
+    <div class="row">
+        <div class="col-md-12 my-3">
+            <app-card [title]="'Hero World'">
+                <ng-container *ngIf="ready; else loading">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            State of the World: {{world.worldState}}
+                        </li>
+                        <li class="list-group-item">
+                            Day {{world.day}}, Hour {{world.hoursToday}}
+                        </li>
+                    </ul>
+                    <hr>
+                    <p>
+                        The state of the world shifts when heroes level up.
+                    </p>
+                    <p>
+                        The direction of the shift is based on the hero's alignment (Good, Evil, Law, Chaos).
+                    </p>
+                    <p>
+                        All levelling up impacts the overall Progress of the world.
+                    </p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Good
+                            <span class="badge badge-secondary">{{world.good}}</span>
+                            VS Evil
+                            <span class="badge badge-secondary">{{world.evil}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            Law
+                            <span class="badge badge-secondary">{{world.law}}</span>
+                            VS Chaos
+                            <span class="badge badge-secondary">{{world.chaos}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            Progress
+                            <span class="badge badge-secondary">{{world.progress}}</span>
+                        </li>
+                    </ul>
+                </ng-container>
+            </app-card>
+        </div>
+    </div>
+</app-body>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

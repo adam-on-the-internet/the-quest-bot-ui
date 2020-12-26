@@ -32,6 +32,10 @@ export class NavHelperService {
         this.goToRoute(ROUTES_ENUM.HeroStats);
     }
 
+    public goToWorld(): void {
+        this.goToRoute(ROUTES_ENUM.World);
+    }
+
     public goToInfo(): void {
         this.goToRoute(ROUTES_ENUM.Info);
     }

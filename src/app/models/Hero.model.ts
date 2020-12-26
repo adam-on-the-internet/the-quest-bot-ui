@@ -1,6 +1,8 @@
 export interface Hero {
     announcement: string;
     name: string;
+    path: string;
+    weather: string;
     race: string;
     alignment: string;
     _id: string;

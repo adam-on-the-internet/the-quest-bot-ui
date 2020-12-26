@@ -32,6 +32,10 @@ export class NavbarComponent {
         this.navHelper.goToCurrentHero();
     }
 
+    public goToWorld() {
+        this.navHelper.goToWorld();
+    }
+
     public goToFallenHeroes() {
         this.navHelper.goToFallenHeroes();
     }

@@ -1,13 +1,45 @@
 <app-card [title]="heroTitle" [subtitle]="heroSubtitle" *ngIf="hasHero">
     <section id="recent-update">
+        <h4 *ngIf="!hero.storyOver">
+            Recent Update
+        </h4>
         <p>
-            <span *ngIf="!hero.storyOver">
-            Recent update:
-            </span>
             <em>
                 {{recentUpdate}}
             </em>
         </p>
+    </section>
+    <section id="interact" *ngIf="!hero.storyOver">
+        <hr>
+        <h4>Interact</h4>
+        <p>
+            You can throw an item into the hero's path to affect them during travel.
+            <br>
+            If an item is currently in the hero's path, it will be replaced by what you throw.
+            <br>
+            Items can help or hurt the hero.
+        </p>
+        <p>
+            Current item in the path:
+            <em>
+                <span *ngIf="pathOccupied">
+                    {{hero.path}}
+                </span>
+                <span *ngIf="!pathOccupied">
+                Nothing
+            </span>
+            </em>
+        </p>
+        <ng-container *ngFor="let item of itemsToThrow">
+            <p>
+                <button class="btn btn-secondary"
+                        (click)="throwItemInPath(item.name)"
+                        [disabled]="hero.path === item.name">
+                    THROW {{item.name}}
+                </button>
+                {{item.description}}
+            </p>
+        </ng-container>
     </section>
     <section id="stats">
         <hr>
@@ -145,7 +177,7 @@
         </p>
         <p>
             Total Damage Taken:
-            {{hero.damageTakenTotal}} miles
+            {{hero.damageTakenTotal}} hp
         </p>
     </section>
     <section id="journal">

@@ -1,23 +1,23 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {HeroCardComponent} from "./hero-card.component";
+import {WorldComponent} from "./world.component";
 import {CardComponent} from "../card/card.component";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {BodyComponent} from "../body/body.component";
+import {LoadingComponent} from "../loading/loading.component";
 
-describe("HeroCardComponent", () => {
-    let component: HeroCardComponent;
-    let fixture: ComponentFixture<HeroCardComponent>;
+describe("WorldComponent", () => {
+    let component: WorldComponent;
+    let fixture: ComponentFixture<WorldComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeroCardComponent, CardComponent],
-            imports: [HttpClientTestingModule]
+            declarations: [WorldComponent, CardComponent, BodyComponent, LoadingComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(HeroCardComponent);
+        fixture = TestBed.createComponent(WorldComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
