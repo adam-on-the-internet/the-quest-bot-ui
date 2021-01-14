@@ -30,16 +30,24 @@
             </span>
             </em>
         </p>
-        <ng-container *ngFor="let item of itemsToThrow">
-            <p>
-                <button class="btn btn-secondary"
-                        (click)="throwItemInPath(item.name)"
-                        [disabled]="hero.path === item.name">
-                    THROW {{item.name}}
-                </button>
-                {{item.description}}
-            </p>
-        </ng-container>
+        <div class="row">
+            <ng-container *ngFor="let item of itemsToThrow">
+                <div class="col-md-4 text-center">
+                    <div class="border border-secondary mx-1 my-1">
+                        <p class="mt-2 mx-2">
+                            <button class="btn btn-secondary btn-block"
+                                    (click)="throwItemInPath(item.name)"
+                                    [disabled]="hero.path === item.name">
+                                THROW {{item.name}}
+                            </button>
+                        </p>
+                        <p>
+                            {{item.description}}
+                        </p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
     </section>
     <section id="stats">
         <hr>

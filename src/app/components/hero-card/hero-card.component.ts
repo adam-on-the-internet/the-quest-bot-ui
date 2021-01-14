@@ -16,6 +16,12 @@ export class HeroCardComponent {
     public itemsToThrow = [
         {name: "APPLE", description: "+5 hp"},
         {name: "SNAKE", description: "-5 hp"},
+        {name: "BOX", description: "+/- 10 hp"},
+        {name: "MUSHROOM", description: "A decent offense..."},
+        {name: "ARMOR", description: "A decent defense..."},
+        {name: "BOOTS", description: "Good for travelling..."},
+        {name: "ORB", description: "Good for reflection..."},
+        {name: "AMULET", description: "Might be cursed..."},
     ];
 
     public get pathOccupied(): boolean {
