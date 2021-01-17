@@ -22,6 +22,7 @@ export class HeroCardComponent {
         {name: "BOOTS", description: "Good for travelling..."},
         {name: "ORB", description: "Good for reflection..."},
         {name: "AMULET", description: "Might be cursed..."},
+        {name: "BANDAGE", description: "Helpful for healing..."},
     ];
 
     public get pathOccupied(): boolean {
