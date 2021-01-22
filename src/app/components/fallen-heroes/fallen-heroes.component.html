@@ -10,35 +10,26 @@
                         <p>
                             Showing {{fallenHeroes.length}} fallen hero(es)...
                         </p>
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Level</th>
-                                <th>Story Length</th>
-                                <th>Story Dates</th>
-                                <th>More Info</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr *ngFor="let hero of fallenHeroes">
-                                <td>{{hero.name}}</td>
-                                <td>Lvl. {{hero.level}}</td>
-                                <td>{{hero.age}} updates</td>
-                                <td>
-                                    {{hero.startDate | date:'short'}}
-                                    to
-                                    {{hero.deathDate | date:'short'}}
-                                </td>
-                                <td>
-                                    <button class="btn btn-outline-primary" (click)="goToHeroDisplay(hero)">
-                                        <i class="fa fa-info-circle"></i>
-                                        More Info
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="col-md-4 my-2" *ngFor="let hero of fallenHeroes">
+                                <app-card (click)="goToHeroDisplay(hero)"
+                                          [title]="hero.name"
+                                          [subtitle]="'Lvl. ' + hero.level + ' ~ ' + hero.completedQuests.length + ' quests ~ ' + hero.age + ' updates'"
+                                          [useHover]="true">
+                                    <p>
+                                        {{hero.alignment}}
+                                    </p>
+                                    <p>
+                                        Started:
+                                        {{hero.startDate | date:'short'}}
+                                    </p>
+                                    <p>
+                                        Ended:
+                                        {{hero.deathDate | date:'short'}}
+                                    </p>
+                                </app-card>
+                            </div>
+                        </div>
                     </ng-container>
                 </ng-container>
             </app-card>
