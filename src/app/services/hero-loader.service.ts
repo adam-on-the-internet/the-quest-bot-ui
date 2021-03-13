@@ -6,7 +6,7 @@ import {ServiceUrl} from "../constants/rest.constants";
 import {CookieHelper} from "../utilities/cookie.util";
 import {HeroService} from "./hero.service";
 import {Hero} from "../models/Hero.model";
-import {HeroStats} from "../models/HeroStats.model";
+import {QuestBotStats} from "../models/HeroStats.model";
 import {World} from "../models/World.model";
 
 const controller = "quest";
@@ -97,13 +97,13 @@ export class HeroLoaderService {
         return this.http.get(url, CookieHelper.authHeaders) as Observable<Hero[]>;
     }
 
-    private getHeroStats(): Observable<HeroStats> {
+    private getHeroStats(): Observable<QuestBotStats> {
         const url = RestUrlBuilder.buildRestUrl({
             service: ServiceUrl.BasicExpress,
             controller,
             collection: "heroStats",
         });
-        return this.http.get(url, CookieHelper.authHeaders) as Observable<HeroStats>;
+        return this.http.get(url, CookieHelper.authHeaders) as Observable<QuestBotStats>;
     }
 
     private getHeroWorld(): Observable<World> {

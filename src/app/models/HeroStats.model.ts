@@ -1,5 +1,6 @@
-export interface HeroStats {
+export interface QuestBotStats {
     heroesCreated: number;
     questsCompleted: number;
     chaptersCompleted: number;
+    maxHeroLevel: number;
 }

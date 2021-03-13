@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HeroStats} from "../models/HeroStats.model";
+import {QuestBotStats} from "../models/HeroStats.model";
 import {Hero} from "../models/Hero.model";
 import {World} from "../models/World.model";
 
@@ -9,7 +9,7 @@ import {World} from "../models/World.model";
 export class HeroService {
     public currentHero: Hero = null;
     public fallenHeroes: Hero[] = null;
-    public heroStats: HeroStats = null;
+    public heroStats: QuestBotStats = null;
     public heroWorld: World = null;
 
     public retrievedFallenHeroes = false;
