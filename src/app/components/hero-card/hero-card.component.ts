@@ -35,7 +35,23 @@ export class HeroCardComponent {
 
     public get heroSubtitle(): string {
         const distanceText = BooleanHelper.hasValue(this.hero.distanceText) ? `${this.hero.distanceText} ~` : "";
-        return `${this.hero.hpText} ~ ${distanceText} ${this.hero.expText} ~ ${this.hero.age} updates`;
+        let subtitleText = `${this.hero.hpText} ~ ${distanceText} ${this.hero.expText} ~ ${this.hero.age} updates`;
+        if (this.hero.conditions && this.hero.conditions.length > 0) {
+            const conditionText = this.conditionText;
+            subtitleText += ` ~ ${conditionText}`
+        }
+        return subtitleText;
+    }
+
+    private get conditionText(): string {
+        let conditionText = " ~ CONDITIONS: ";
+        this.hero.conditions.forEach((condition, i) => {
+            if (i > 0) {
+                conditionText += ", ";
+            }
+            conditionText += " " + condition;
+        });
+        return conditionText;
     }
 
     public get hasHero(): boolean {

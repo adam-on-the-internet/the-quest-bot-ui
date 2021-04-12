@@ -20,6 +20,7 @@ export interface Hero {
     stats: HeroStats;
     inventory: string[];
     party: string[];
+    conditions: string[];
     storyOver: boolean;
     journal: string[];
     backstory: string;
